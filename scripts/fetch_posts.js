@@ -5,7 +5,56 @@ const xml2js = require("xml2js");
 const FLARESOLVERR_URL = "https://mabelle-supervenient-talitha.ngrok-free.dev/v1";
 
 const SITEMAP_URLS = [
-  'https://missav.ws/sitemap_items_1.xml'
+  'https://missav.ws/sitemap_items_1.xml',
+  'https://missav.ws/sitemap_items_2.xml',
+  'https://missav.ws/sitemap_items_3.xml',
+  'https://missav.ws/sitemap_items_4.xml',
+  'https://missav.ws/sitemap_items_5.xml',
+  'https://missav.ws/sitemap_items_6.xml',
+  'https://missav.ws/sitemap_items_7.xml',
+  'https://missav.ws/sitemap_items_8.xml',
+  'https://missav.ws/sitemap_items_9.xml',
+  'https://missav.ws/sitemap_items_10.xml',
+  'https://missav.ws/sitemap_items_11.xml',
+  'https://missav.ws/sitemap_items_12.xml',
+  'https://missav.ws/sitemap_items_13.xml',
+  'https://missav.ws/sitemap_items_14.xml',
+  'https://missav.ws/sitemap_items_15.xml',
+  'https://missav.ws/sitemap_items_16.xml',
+  'https://missav.ws/sitemap_items_17.xml',
+  'https://missav.ws/sitemap_items_18.xml',
+  'https://missav.ws/sitemap_items_19.xml',
+  'https://missav.ws/sitemap_items_20.xml',
+  'https://missav.ws/sitemap_items_21.xml',
+  'https://missav.ws/sitemap_items_22.xml',
+  'https://missav.ws/sitemap_items_23.xml',
+  'https://missav.ws/sitemap_items_24.xml',
+  'https://missav.ws/sitemap_items_25.xml',
+  'https://missav.ws/sitemap_items_26.xml',
+  'https://missav.ws/sitemap_items_27.xml',
+  'https://missav.ws/sitemap_items_28.xml',
+  'https://missav.ws/sitemap_items_29.xml',
+  'https://missav.ws/sitemap_items_30.xml',
+  'https://missav.ws/sitemap_items_31.xml',
+  'https://missav.ws/sitemap_items_32.xml',
+  'https://missav.ws/sitemap_items_33.xml',
+  'https://missav.ws/sitemap_items_34.xml',
+  'https://missav.ws/sitemap_items_35.xml',
+  'https://missav.ws/sitemap_items_36.xml',
+  'https://missav.ws/sitemap_items_37.xml',
+  'https://missav.ws/sitemap_items_38.xml',
+  'https://missav.ws/sitemap_items_39.xml',
+  'https://missav.ws/sitemap_items_40.xml',
+  'https://missav.ws/sitemap_items_41.xml',
+  'https://missav.ws/sitemap_items_42.xml',
+  'https://missav.ws/sitemap_items_43.xml',
+  'https://missav.ws/sitemap_items_44.xml',
+  'https://missav.ws/sitemap_items_45.xml',
+  'https://missav.ws/sitemap_items_46.xml',
+  'https://missav.ws/sitemap_items_47.xml',
+  'https://missav.ws/sitemap_items_48.xml',
+  'https://missav.ws/sitemap_items_49.xml',
+  'https://missav.ws/sitemap_items_50.xml'
 ];
 
 const POSTS_DIR = path.join(__dirname, "../data/posts");
@@ -69,9 +118,9 @@ function getIndexFile(key) {
   return path.join(INDEX_DIR, key[0] + ".json");
 }
 
-function getMetaFile(key) {
-  return path.join(META_DIR, key[0] + ".json");
-}
+// function getMetaFile(key) {
+//   return path.join(META_DIR, key[0] + ".json");
+// }
 
 function slugFromUrl(url) {
   // Clean URL
@@ -145,17 +194,17 @@ async function downloadPost(url) {
     fs.writeFileSync(indexFile, JSON.stringify(idx));
 
     // META
-    const title = (html.match(/<title>(.*?)<\/title>/i) || [])[1] || key;
-    const image = (html.match(/og:image" content="(.*?)"/i) || [])[1] || null;
+    // const title = (html.match(/<title>(.*?)<\/title>/i) || [])[1] || key;
+    // const image = (html.match(/og:image" content="(.*?)"/i) || [])[1] || null;
 
-    const metaFile = getMetaFile(key);
-    let meta = {};
-    if (fs.existsSync(metaFile)) {
-      try { meta = JSON.parse(fs.readFileSync(metaFile)); } catch {}
-    }
+    // const metaFile = getMetaFile(key);
+    // let meta = {};
+    // if (fs.existsSync(metaFile)) {
+    //   try { meta = JSON.parse(fs.readFileSync(metaFile)); } catch {}
+    // }
 
-    meta[key] = { title, image, path: relativePath };
-    fs.writeFileSync(metaFile, JSON.stringify(meta));
+    // meta[key] = { title, image, path: relativePath };
+    // fs.writeFileSync(metaFile, JSON.stringify(meta));
 
     console.log("✅ Saved:", key);
 
